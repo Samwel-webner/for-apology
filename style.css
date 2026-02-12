@@ -1,94 +1,64 @@
-/* ===============================
-   RESET & BASE
-================================= */
-
-* {
-  box-sizing: border-box;
-}
-
+/* ===== Reset & Base ===== */
 body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
   font-family: Arial, sans-serif;
-
-  /* IMPORTANT: match your HTML asset path */
-  background: url("assets/purple-night.jpg") center/cover no-repeat;
-
+  background: url("assets/purple-night.jpg") no-repeat center center fixed;
+  background-size: cover;
   color: white;
   text-align: center;
-
-  overflow-x: hidden;
-  position: relative;
+  overflow-x: hidden; /* allow vertical scroll but prevent sideways scroll */
 }
 
-/* ===============================
-   DARK OVERLAY
-================================= */
-
+/* ===== Dark Overlay (Even across whole page) ===== */
 .overlay {
   position: fixed;
-  inset: 0;
+  inset: 0; /* shorthand for top:0; left:0; right:0; bottom:0 */
   background: rgba(20, 0, 40, 0.6);
   z-index: 1;
-  pointer-events: none;
 }
 
-/* ===============================
-   MAIN CONTENT
-================================= */
-
+/* ===== Main Content ===== */
 .container {
   position: relative;
   z-index: 2;
-  padding: 100px 20px 40px;
-  max-width: 900px;
-  margin: auto;
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
 }
 
-/* ===============================
-   TEXT
-================================= */
-
+/* ===== Soft Intro Text ===== */
 .soft-text {
   font-size: 18px;
   margin-bottom: 20px;
-  opacity: 0.9;
 }
 
-/* ===============================
-   GLASS BUTTONS
-================================= */
-
+/* ===== Glass Buttons ===== */
 .bubble {
   padding: 12px 25px;
   margin: 10px;
   border-radius: 30px;
   border: none;
   cursor: pointer;
-
   background: rgba(255,255,255,0.2);
   color: white;
   font-size: 16px;
-
+  transition: all 0.3s ease;
   backdrop-filter: blur(10px);
-
-  transition: all 0.25s ease;
   animation: float 4s ease-in-out infinite;
 }
 
 @keyframes float {
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-  100% { transform: translateY(0); }
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
 }
 
 .bubble:hover {
-  transform: scale(1.08);
+  transform: scale(1.1);
   background: rgba(255,255,255,0.35);
 }
-
-/* Music button accent */
 
 #musicBtn {
   background: rgba(199, 125, 255, 0.25);
@@ -99,10 +69,7 @@ body {
   box-shadow: 0 0 15px rgba(199,125,255,0.8);
 }
 
-/* ===============================
-   UTILITY
-================================= */
-
+/* ===== Utility ===== */
 .hidden {
   display: none;
 }
@@ -110,34 +77,28 @@ body {
 #messageBox {
   margin-top: 20px;
   font-size: 18px;
-  width: min(90%, 600px);
-  margin-inline: auto;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
   line-height: 1.6;
 }
 
-/* ===============================
-   DANCING CARTOON
-================================= */
-
+/* ===== Dancing Cartoon ===== */
 .dance-cartoon {
-  width: min(200px, 60vw);
+  width: 200px;
   margin-top: 20px;
-
   animation: dance 0.6s infinite alternate ease-in-out;
   animation-play-state: paused;
 }
 
 @keyframes dance {
-  0%   { transform: rotate(-5deg) translateY(0); }
+  0%   { transform: rotate(-5deg) translateY(0px); }
   100% { transform: rotate(5deg) translateY(-10px); }
 }
 
-/* ===============================
-   FUNNY TEXT
-================================= */
-
+/* ===== Funny Text Animation ===== */
 .funny-text {
-  font-size: clamp(18px, 4vw, 22px);
+  font-size: 22px;
   margin-top: 20px;
   animation: popIn 0.6s ease forwards;
 }
@@ -147,16 +108,13 @@ body {
   100% { transform: scale(1); opacity: 1; }
 }
 
-/* ===============================
-   CONFETTI
-================================= */
-
+/* ===== Confetti Container ===== */
 #confettiContainer {
   position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: hidden;
-  z-index: 4;
+  z-index: 3;
 }
 
 .confetti {
@@ -168,7 +126,7 @@ body {
 
 @keyframes fall {
   0% {
-    transform: translateY(-100vh) rotate(0);
+    transform: translateY(-100vh) rotate(0deg);
     opacity: 1;
   }
   100% {
@@ -177,23 +135,17 @@ body {
   }
 }
 
-/* ===============================
-   GLOWING MOON
-================================= */
-
+/* ===== Moon ===== */
 .moon {
   position: fixed;
   top: 60px;
   right: 80px;
-
   width: 120px;
   height: 120px;
-
   background: radial-gradient(circle at 30% 30%, #fff, #ddd 60%, #aaa);
   border-radius: 50%;
-
+  box-shadow: 0 0 40px 15px rgba(255,255,255,0.4);
   animation: moonGlow 3s ease-in-out infinite alternate;
-
   z-index: 0;
 }
 
@@ -202,27 +154,21 @@ body {
   100% { box-shadow: 0 0 70px 25px rgba(255,255,255,0.7); }
 }
 
-/* ===============================
-   SHOOTING STARS
-================================= */
 
+/* Shooting Star */
 .stars::before,
 .stars::after {
   content: "";
   position: fixed;
-
   width: 2px;
   height: 80px;
-
   background: linear-gradient(white, transparent);
-
   top: -100px;
+  left: 50%;
   animation: shoot 6s linear infinite;
-
   z-index: 0;
 }
 
-.stars::before { left: 50%; }
 .stars::after {
   left: 70%;
   animation-delay: 3s;
@@ -230,50 +176,23 @@ body {
 
 @keyframes shoot {
   0% {
-    transform: translate(0,0) rotate(45deg);
+    transform: translateY(0) translateX(0) rotate(45deg);
     opacity: 1;
   }
   100% {
-    transform: translate(200px,600px) rotate(45deg);
+    transform: translateY(600px) translateX(200px) rotate(45deg);
     opacity: 0;
   }
 }
 
-/* ===============================
-   RETURN BUTTON
-================================= */
-
 #returnBtn {
   margin-top: 25px;
-  background: rgba(255,255,255,0.15);
+  background: rgba(255, 255, 255, 0.15);
   border: 1px solid rgba(255,255,255,0.3);
 }
 
 #returnBtn:hover {
   box-shadow: 0 0 15px rgba(255,255,255,0.6);
-}
-
-/* ===============================
-   MOBILE OPTIMIZATION
-================================= */
-
-@media (max-width: 600px) {
-
-  .moon {
-    width: 80px;
-    height: 80px;
-    right: 20px;
-    top: 40px;
-  }
-
-  .container {
-    padding-top: 80px;
-  }
-
-  .bubble {
-    width: 90%;
-    max-width: 320px;
-  }
 }
 
 
