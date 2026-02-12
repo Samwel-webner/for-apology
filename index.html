@@ -1,20 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Small Apology</title>
     <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- Background layers -->
 <div class="overlay"></div>
+
 <div class="moon"></div>
 <div class="stars"></div>
 
-<!-- Main container -->
+
 <div class="container">
 
     <h1>Hey Lindsay 🌙</h1>
@@ -22,52 +19,38 @@
     <p class="soft-text">
         I hope you're ready for this.
     </p>
-
-    <!-- Music button -->
     <button id="musicBtn" class="bubble">Play Music 🎵</button>
 
-    <!-- Audio -->
 <audio id="bgMusic" src="assets/music.mp3" loop></audio>
 
-    <!-- Message button -->
     <button id="openBtn" class="bubble">Open Message 💌</button>
 
-    <!-- Dance button -->
     <button id="funBtn" class="bubble">Activate Silly Dance Mode 😂</button>
 
-    <!-- Message box -->
     <div id="messageBox" class="hidden">
         <p id="typewriter"></p>
     </div>
 
-    <!-- Dance area -->
     <div id="danceArea" class="hidden">
-
         <h2>My Dance moves 💃🕺</h2>
 
         <div id="confettiContainer"></div>
 
-        <!-- Dancing image -->
         <img src="assets/dancing.png" class="dance-cartoon">
 
-
-        <!-- Funny message -->
         <p id="danceMessage" class="hidden funny-text">
-            0/10 communication skills<br>
+            0/10 communication skills  
+            <br>
             but 11/10 dance moves 😂
         </p>
 
-        <!-- Return button -->
-        <button id="returnBtn" class="bubble hidden">
-            Return to Start 🌙
-        </button>
+        <button id="returnBtn" class="bubble hidden">Return to Start 🌙</button>
 
     </div>
 
 </div>
 
 <script src="script.js"></script>
-
 </body>
 </html>
 
